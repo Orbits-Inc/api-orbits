@@ -16,6 +16,10 @@ const server = new ApolloServer({
   context,
 });
 
-server.listen().then(({ url }: { url: String }) => {
-  console.log(`server running on ${url}`);
-});
+require("dotenv").config();
+
+server
+  .listen({ port: process.env.PORT || 4000 })
+  .then(({ url }: { url: String }) => {
+    console.log(`server running on ${url}`);
+  });

@@ -24,12 +24,12 @@ model Post {
   post_id     String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
   title       String
   description String
-  image       String
+  image       String?
   content     String
-  read_time   Int
+  read_time   Int?
   date        DateTime
   tags        String[]
   likes       String[]
   comments    String[]
-  author_id   String?
+  author_id   String
 }

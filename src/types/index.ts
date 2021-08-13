@@ -4,6 +4,7 @@ export const Query = gql`
   type Query {
     AllUsers: [User]!
     ByID(id: String): User
+    Search(query: String): [User]!
   }
 `;
 

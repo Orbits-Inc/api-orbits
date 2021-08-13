@@ -21,4 +21,29 @@ export const userQuery = {
 
     return user;
   },
+
+  Search: async (
+    _: any,
+    { query }: { query: string },
+    ctx: Context
+  ): Promise<User[] | []> => {
+    const users = await ctx.prisma.user.findMany({
+      where: {
+        OR: [
+          {
+            username: {
+              contains: query,
+            },
+          },
+          {
+            name: {
+              contains: query,
+            },
+          },
+        ],
+      },
+    });
+
+    return users;
+  },
 };

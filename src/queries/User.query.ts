@@ -46,4 +46,18 @@ export const userQuery = {
 
     return users;
   },
+
+  GetByUsername: async (
+    _: any,
+    { username }: { username: string },
+    ctx: Context
+  ) => {
+    const user = await ctx.prisma.user.findUnique({
+      where: {
+        username,
+      },
+    });
+
+    return user;
+  },
 };

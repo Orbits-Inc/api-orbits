@@ -7,7 +7,7 @@ export const userQuery = {
     return users;
   },
 
-  ByID: async (
+  GetUserByID: async (
     _: any,
     // id should be of 24 chars
     { id }: { id: string },
@@ -22,7 +22,7 @@ export const userQuery = {
     return user;
   },
 
-  Search: async (
+  SearchUsers: async (
     _: any,
     { query }: { query: string },
     ctx: Context
@@ -47,7 +47,7 @@ export const userQuery = {
     return users;
   },
 
-  GetByUsername: async (
+  GetUserByUsername: async (
     _: any,
     { username }: { username: string },
     ctx: Context

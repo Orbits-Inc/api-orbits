@@ -2,10 +2,16 @@ import { gql } from "apollo-server";
 
 export const Query = gql`
   type Query {
+    # User
     AllUsers: [User]!
-    ByID(id: String): User
-    Search(query: String): [User]!
-    GetByUsername(username: String): User
+    GetUserByID(id: String): User
+    SearchUsers(query: String): [User]!
+    GetUserByUsername(username: String): User
+
+    # Post
+    AllPosts: [Post]!
+    GetPostByID(id: String): Post
+    SearchPosts(query: String): [Post]!
   }
 `;
 

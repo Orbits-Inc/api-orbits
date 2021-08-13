@@ -9,19 +9,15 @@ generator client {
 }
 
 model User {
-  user_id String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
-  // username        String   @unique
-  // role            String
-  // display_picture String
-  // bio             String
-  // notifications   String[]
-  email   String   @unique
-  // posts           Post[]
-  // followers       User[]
-  // following       User[]   @relation("UserToUser")
-  posts   String[]
-  // Post        Post?    @relation(fields: [postPost_id], references: [post_id])
-  // postPost_id String?  @db.ObjectId
+  user_id         String   @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  username        String   @unique
+  name            String
+  display_picture String
+  bio             String
+  email           String   @unique
+  posts           String[]
+  followers       String[]
+  following       String[]
 }
 
 model Post {
@@ -36,5 +32,4 @@ model Post {
   likes       String[]
   comments    String[]
   author_id   String?
-
 }

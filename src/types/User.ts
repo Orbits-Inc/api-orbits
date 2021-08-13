@@ -5,13 +5,11 @@ export const User = gql`
     user_id: ID!
     username: String!
     name: String!
-    role: String! # enum
     display_picture: String
     bio: String
-    notifications: [String]! # notif
     email: String!
     posts: [Post]!
-    followers: [String]!
-    following: [String]!
+    followers: [User]!
+    following: [User]!
   }
 `;

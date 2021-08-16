@@ -9,6 +9,7 @@ export const Query = gql`
     GetUserByUsername(username: String): User
 
     # Post
+    createUser(data: UserParams): User
     AllPosts: [Post]!
     GetPostByID(id: String): Post
     SearchPosts(query: String): [Post]!

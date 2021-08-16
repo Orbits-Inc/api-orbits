@@ -2,6 +2,28 @@ import { User } from "@prisma/client";
 import { Context } from "src/context";
 
 export const userQuery = {
+  createUser: async (
+    _: any,
+    data: { data: User },
+    ctx: Context
+  ): Promise<User | null> => {
+    await ctx.prisma.user.create({
+      data: {
+        ...data.data,
+      },
+    });
+
+    console.log(data.data);
+
+    const createdUser = await ctx.prisma.user.findUnique({
+      where: {
+        user_id: data.data.user_id,
+      },
+    });
+
+    return createdUser;
+  },
+
   AllUsers: async (_: any, __: any, ctx: Context): Promise<User[]> => {
     const users = await ctx.prisma.user.findMany();
     return users;

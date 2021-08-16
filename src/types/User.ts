@@ -12,4 +12,13 @@ export const User = gql`
     followers: [String]!
     following: [String]!
   }
+
+  input UserParams {
+    user_id: ID!
+    username: String!
+    name: String!
+    display_picture: String
+    bio: String
+    email: String!
+  }
 `;

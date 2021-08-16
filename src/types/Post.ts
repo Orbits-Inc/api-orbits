@@ -12,6 +12,6 @@ export const Post = gql`
     tags: [String]
     likes: [User]
     comments: [String]
-    author: User
+    author_id: String
   }
 `;

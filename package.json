@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "src/index.ts",
   "license": "MIT",
+  "prisma": {
+    "schema": "src/prisma/schema.prisma"
+  },
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",

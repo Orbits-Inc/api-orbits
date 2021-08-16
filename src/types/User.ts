@@ -8,8 +8,8 @@ export const User = gql`
     display_picture: String
     bio: String
     email: String!
-    posts: [Post]!
-    followers: [User]!
-    following: [User]!
+    posts: [String]!
+    followers: [String]!
+    following: [String]!
   }
 `;

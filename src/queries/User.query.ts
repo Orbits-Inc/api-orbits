@@ -3,7 +3,7 @@ import { Context } from "src/context";
 
 export const userQuery = {
   AllUsers: async (_: any, __: any, ctx: Context): Promise<User[]> => {
-    const users = ctx.prisma.user.findMany();
+    const users = await ctx.prisma.user.findMany();
     return users;
   },
 

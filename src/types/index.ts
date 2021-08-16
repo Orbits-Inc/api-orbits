@@ -13,6 +13,7 @@ export const Query = gql`
     AllPosts: [Post]!
     GetPostByID(id: String): Post
     SearchPosts(query: String): [Post]!
+    GetTopPosts: [Post]!
   }
 `;
 

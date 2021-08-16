@@ -36,4 +36,22 @@ export const postQuery = {
 
     return posts;
   },
+
+  GetTopPosts: async (_: any, __: any, ctx: Context): Promise<Post[]> => {
+    const posts = await ctx.prisma.post.findMany();
+    for (let i = 0; i < posts.length; i++) {
+      for (let j = 0; j < posts.length - 1; j++) {
+        if (
+          posts[j].comments.length + posts[j].likes.length <
+          posts[j + 1].comments.length + posts[j + 1].likes.length
+        ) {
+          const temp = posts[j];
+          posts[j] = posts[j + 1];
+          posts[j + 1] = temp;
+        }
+      }
+    }
+
+    return posts;
+  },
 };

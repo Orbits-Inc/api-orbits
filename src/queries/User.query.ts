@@ -13,8 +13,6 @@ export const userQuery = {
       },
     });
 
-    console.log(data.data);
-
     const createdUser = await ctx.prisma.user.findUnique({
       where: {
         user_id: data.data.user_id,
